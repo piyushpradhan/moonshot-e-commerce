@@ -1,8 +1,18 @@
+import { useNavigate } from 'react-router-dom'
 import { Product } from 'types/product'
 
 const ProductCard = ({ product }: { product: Product }) => {
+  const navigate = useNavigate()
+
+  const navigateToProductPage = () => {
+    navigate(`/product/${product.id}`)
+  }
+
   return (
-    <div className="col-span-1 h-full w-full overflow-hidden rounded shadow-lg">
+    <div
+      className="col-span-1 h-full w-full cursor-pointer overflow-hidden rounded shadow-lg"
+      onClick={navigateToProductPage}
+    >
       <img
         className="w-full object-cover"
         src={product.image}

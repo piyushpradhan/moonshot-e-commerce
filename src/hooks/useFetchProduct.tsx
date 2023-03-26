@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Product } from 'types/product'
 
 const useFetchProduct = ({ productId }: { productId: string }) => {
-  const [product, setProduct] = useState<Product[]>([])
+  const [product, setProduct] = useState<Product>({} as Product)
 
   useEffect(() => {
     fetchProduct(productId).then((product) => {
