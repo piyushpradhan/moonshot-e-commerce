@@ -1,5 +1,5 @@
 import { registerUser } from 'api/authentication'
-import { useAuthContext } from 'hooks/authContext'
+import { useAuthContext } from 'hooks/context/authContext'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { User } from 'types/user'
