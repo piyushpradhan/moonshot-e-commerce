@@ -4,6 +4,7 @@ import LoginPage from './LoginPage'
 import RegisterPage from './RegisterPage'
 import ProductPage from './ProductPage'
 import { productLoader } from 'utils/loaders'
+import CartPage from './CartPage'
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
     path: '/product/:id',
     element: <ProductPage />,
     loader: productLoader
+  },
+  {
+    path: '/cart',
+    element: <CartPage />
   }
 ])
 

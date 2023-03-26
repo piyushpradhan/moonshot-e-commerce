@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { Product } from 'types/product'
 
 function LandingPage(): JSX.Element {
-  const { products, setProducts } = useFetchAllProducts()
+  const { products } = useFetchAllProducts()
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(products)
 
   useEffect(() => {
@@ -30,9 +30,13 @@ function LandingPage(): JSX.Element {
     <div className="w-screen">
       <TopNavbar searchProduct={searchProduct} />
       <div className="container mx-auto grid h-full w-full gap-4 pt-20 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 ">
-        {filteredProducts.map((product) => (
-          <ProductCard product={product} key={product.id} />
-        ))}
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product) => (
+            <ProductCard product={product} key={product.id} />
+          ))
+        ) : (
+          <div className="text-gray-400">No products to display</div>
+        )}
       </div>
     </div>
   )

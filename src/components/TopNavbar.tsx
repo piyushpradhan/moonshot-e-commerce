@@ -1,12 +1,14 @@
 import { useAuthContext } from 'hooks/context/authContext'
 import { useState } from 'react'
 import DebouncedSearchInput from './DebouncedInput'
+import { useNavigate } from 'react-router-dom'
 
 const TopNavbar = ({
   searchProduct
 }: {
   searchProduct?: (value: string) => void
 }) => {
+  const navigate = useNavigate()
   const authContext = useAuthContext()
 
   const [search, setSearch] = useState<string>('')
@@ -30,7 +32,12 @@ const TopNavbar = ({
           Login
         </button>
       ) : (
-        <button className="rounded-md bg-black py-2 px-6 font-semibold text-white focus:outline-none">
+        <button
+          onClick={(e) => {
+            navigate('/cart')
+          }}
+          className="rounded-md bg-black py-2 px-6 font-semibold text-white focus:outline-none"
+        >
           Cart
         </button>
       )}
